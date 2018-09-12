@@ -2,8 +2,4 @@
 
 S3method(read_bd,character)
 S3method(read_bd,data.frame)
-S3method(to_matrix,data.frame)
-S3method(to_matrix2,data.frame)
 export(read_bd)
-export(to_matrix)
-export(to_matrix2)

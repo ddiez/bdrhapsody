@@ -3,17 +3,11 @@
 \name{to_matrix}
 \alias{to_matrix}
 \alias{to_matrix.data.frame}
-\alias{to_matrix2}
-\alias{to_matrix2.data.frame}
 \title{to_matrix}
 \usage{
 to_matrix(x, rownames = NULL)
 
 \method{to_matrix}{data.frame}(x, rownames = NULL)
-
-to_matrix2(x, rownames = NULL)
-
-\method{to_matrix2}{data.frame}(x, rownames = NULL)
 }
 \arguments{
 \item{x}{data.frame to conver.}
