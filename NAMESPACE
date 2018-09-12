@@ -3,3 +3,6 @@
 S3method(read_bd,character)
 S3method(read_bd,data.frame)
 export(read_bd)
+import(dplyr)
+import(readr)
+import(tidyr)
