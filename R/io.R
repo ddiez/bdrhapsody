@@ -61,7 +61,7 @@ read_bd.character <- function(filename, samplename = NULL) {
 
   # set rowData.
   ann <- strsplit(rownames(y), "\\|")
-  rdata <- tibble(
+  rdata <- DataFrame(
     id = rownames(y),
     symbol = sapply(ann, `[`, 1),
     accession = sapply(ann, `[`, 2),
