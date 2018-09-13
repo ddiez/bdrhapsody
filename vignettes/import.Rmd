@@ -1,0 +1,57 @@
+---
+title: "Reading BD Rhapsody files"
+author: "Vignette Author"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(bdrhapsody)
+library(dplyr)
+```
+
+
+# Import using file location
+
+```{r}
+f <- system.file("extdata/sample1_DBEC_MolsPerCell.csv", package = "bdrhapsody")
+x <- read_bd(f)
+x
+```
+
+```{r}
+cdata <- colData(x)
+cdata["filename"] <- NULL # remove long filename from output.
+head(cdata)
+```
+
+```{r}
+head(rowData(x))
+```
+
+
+# Import using targets data.frame
+
+This enables to attach sample information to the `SingleCellExperiment` objects. The data.frame must contain a column named `filename` with the file locations.
+
+```{r}
+d <- data.frame(samplename = "sample1", group = "WT", filename = f, stringsAsFactors = FALSE)
+x <- read_bd(d)
+x
+```
+
+```{r}
+cdata <- colData(x)
+cdata["filename"] <- NULL # remove long filename from output.
+head(cdata)
+```
+

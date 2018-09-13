@@ -4,11 +4,17 @@ Version: 0.0.0.9000
 Authors@R: 'Diego Diez <diego10ruiz@gmail.com> [aut, cre]'
 Description: Infrastructure to read and process BD Rhapsody data.
 Depends: R (>= 3.5.1)
-Imports: 
+Imports:
+  tibble,
   dplyr,
   tidyr,
-  readr
+  readr,
+  SingleCellExperiment,
+  S4Vectors
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.0
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr
