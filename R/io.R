@@ -2,8 +2,11 @@
 #'
 #' Read file in BD format.
 #'
+#' @param x a data.frame with sample information.
+#' @param split logical; whether to return a list of objects, each for a file.
 #' @param filename name of file to read.
 #' @param samplename sample names to attach to cell_index.
+#' @param ... arguments passed down to methods.
 #'
 #' @export
 read_bd <- function(...) {

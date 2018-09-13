@@ -16,6 +16,12 @@ read_bd(...)
 read_bd_as_df(filename, samplename = NULL)
 }
 \arguments{
+\item{...}{arguments passed down to methods.}
+
+\item{x}{a data.frame with sample information.}
+
+\item{split}{logical; whether to return a list of objects, each for a file.}
+
 \item{filename}{name of file to read.}
 
 \item{samplename}{sample names to attach to cell_index.}
