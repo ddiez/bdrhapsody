@@ -6,6 +6,7 @@
 #' @param split logical; whether to return a list of objects, each for a file.
 #' @param filename name of file to read.
 #' @param samplename sample names to attach to cell_index.
+#' @param org.db and OrgDb object or a character string of such object.
 #' @param ... arguments passed down to methods.
 #'
 #' @export
@@ -47,7 +48,7 @@ read_bd.data.frame <- function(x, split = FALSE) {
 #' @rdname read_bd
 #'
 #' @export
-read_bd.character <- function(filename, samplename = NULL) {
+read_bd.character <- function(filename, samplename = NULL, org.db = NULL) {
   if (is.null(samplename))
     samplename <- paste0("S", sprintf("%05d", length(filename)))
 
@@ -68,6 +69,13 @@ read_bd.character <- function(filename, samplename = NULL) {
     note = sapply(ann, `[`, 3),
     row.names = rownames(y)
   )
+
+  if (! is.null(org.db)) {
+    if (class(org.db) != "OrgDb")
+      warning("org.db object not of class OrgDb (class: ", class(org.db), ")")
+    else
+      rdata[["entrezgene"]] <- mapIds(org.db, rdata[["symbol"]], column = "ENTREZID", keytype = "SYMBOL")
+  }
 
   SingleCellExperiment::SingleCellExperiment(
     assays = list(

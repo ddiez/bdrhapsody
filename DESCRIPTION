@@ -12,7 +12,8 @@ Imports:
   readr,
   S4Vectors,
   SummarizedExperiment,
-  SingleCellExperiment
+  SingleCellExperiment,
+  AnnotationDbi
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

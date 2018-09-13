@@ -11,7 +11,7 @@ read_bd(...)
 
 \method{read_bd}{data.frame}(x, split = FALSE)
 
-\method{read_bd}{character}(filename, samplename = NULL)
+\method{read_bd}{character}(filename, samplename = NULL, org.db = NULL)
 
 read_bd_as_df(filename, samplename = NULL)
 }
@@ -25,6 +25,8 @@ read_bd_as_df(filename, samplename = NULL)
 \item{filename}{name of file to read.}
 
 \item{samplename}{sample names to attach to cell_index.}
+
+\item{org.db}{and OrgDb object or a character string of such object.}
 }
 \description{
 Read file in BD format.
