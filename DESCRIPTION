@@ -3,14 +3,15 @@ Title: Processing of BD Rhapsody data
 Version: 0.0.0.9000
 Authors@R: 'Diego Diez <diego10ruiz@gmail.com> [aut, cre]'
 Description: Infrastructure to read and process BD Rhapsody data.
-Depends: R (>= 3.5.1)
+Depends:
+  R (>= 3.5.0),
+  SummarizedExperiment
 Imports:
   tibble,
   dplyr,
   tidyr,
   readr,
   S4Vectors,
-  SummarizedExperiment,
   SingleCellExperiment
 License: MIT + file LICENSE
 Encoding: UTF-8
