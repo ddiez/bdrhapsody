@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 )
 
 library(bdrhapsody)
+library(SummarizedExperiment)
 library(dplyr)
 ```
 
