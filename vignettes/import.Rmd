@@ -24,7 +24,7 @@ library(dplyr)
 # Import using file location
 
 ```{r}
-f <- system.file("extdata/sample1_DBEC_MolsPerCell.csv", package = "bdrhapsody")
+f <- system.file("extdata/sample_bd_dbec.csv.gz", package = "bdrhapsody")
 x <- read_bd(f)
 x
 ```
