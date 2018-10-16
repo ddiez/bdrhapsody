@@ -17,7 +17,7 @@ read_bd <- function(...) {
 #' @rdname read_bd
 #'
 #' @export
-read_bd.data.frame <- function(x, split = FALSE) {
+read_bd.data.frame <- function(x, split = FALSE, ...) {
   if (split) {
     y <- vector("list", nrow(x))
     for (k in seq_len(nrow(x))) {
@@ -48,7 +48,7 @@ read_bd.data.frame <- function(x, split = FALSE) {
 #' @rdname read_bd
 #'
 #' @export
-read_bd.character <- function(filename, samplename = NULL, org.db = NULL) {
+read_bd.character <- function(filename, samplename = NULL, org.db = NULL, ...) {
   if (is.null(samplename))
     samplename <- paste0("S", sprintf("%05d", length(filename)))
 

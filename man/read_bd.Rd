@@ -9,9 +9,10 @@
 \usage{
 read_bd(...)
 
-\method{read_bd}{data.frame}(x, split = FALSE)
+\method{read_bd}{data.frame}(x, split = FALSE, ...)
 
-\method{read_bd}{character}(filename, samplename = NULL, org.db = NULL)
+\method{read_bd}{character}(filename, samplename = NULL, org.db = NULL,
+  ...)
 
 read_bd_as_df(filename, samplename = NULL)
 }
