@@ -58,7 +58,7 @@ read_bd.character <- function(filename, samplename = NULL, org.db = NULL, ...) {
   y <- to_matrix(x %>% select(-samplename, -filename), "cell_index") %>% t()
 
   # colData.
-  cdata <- x %>% select(samplename, filename, cell_index)
+  cdata <- x %>% select_("samplename", "filename", "cell_index")
 
   # set rowData.
   rdata <- DataFrame(parse_bd_id(rownames(y)))
@@ -86,10 +86,10 @@ read_bd_as_df <- function(filename, samplename = NULL) {
     progress = FALSE,
     col_types = cols(.default = col_integer())
   ) %>%
-    rename(cell_index = Cell_Index)
+    rename(cell_index = .data$Cell_Index)
 
   if (!is.null(samplename))
-    x <- x %>% mutate(samplename = !!samplename, cell_index = paste0(!!samplename, "_", cell_index))
+    x <- x %>% mutate(samplename = !!samplename, cell_index = paste0(!!samplename, "_", .data$cell_index))
 
   x
 }
@@ -110,3 +110,4 @@ parse_bd_id <- function(x) {
     row.names = x,
     stringsAsFactors = FALSE
   )
+}
