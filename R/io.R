@@ -61,14 +61,7 @@ read_bd.character <- function(filename, samplename = NULL, org.db = NULL, ...) {
   cdata <- x %>% select(samplename, filename, cell_index)
 
   # set rowData.
-  ann <- strsplit(rownames(y), "\\|")
-  rdata <- DataFrame(
-    id = rownames(y),
-    symbol = sapply(ann, `[`, 1),
-    accession = sapply(ann, `[`, 2),
-    note = sapply(ann, `[`, 3),
-    row.names = rownames(y)
-  )
+  rdata <- DataFrame(parse_bd_id(rownames(y)))
 
   if (! is.null(org.db)) {
     if (class(org.db) != "OrgDb")
@@ -100,3 +93,20 @@ read_bd_as_df <- function(filename, samplename = NULL) {
 
   x
 }
+
+
+#' parse_bd_id
+#'
+#' @param x character vector with BD format ids.
+#'
+#' @export
+parse_bd_id <- function(x) {
+  fields <- strsplit(x, "\\|")
+  data.frame(
+    id = x,
+    symbol = sapply(fields, `[`, 1),
+    accession = sapply(fields, `[`, 2),
+    note = sapply(fields, `[`, 3),
+    row.names = x,
+    stringsAsFactors = FALSE
+  )

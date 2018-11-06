@@ -2,6 +2,7 @@
 
 S3method(read_bd,character)
 S3method(read_bd,data.frame)
+export(parse_bd_id)
 export(read_bd)
 import(SingleCellExperiment)
 import(SummarizedExperiment)
