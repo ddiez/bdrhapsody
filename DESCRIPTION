@@ -1,6 +1,6 @@
 Package: bdrhapsody
 Title: Processing of BD Rhapsody data
-Version: 0.0.1.9000
+Version: 0.0.2.9000
 Authors@R: 'Diego Diez <diego10ruiz@gmail.com> [aut, cre]'
 Description: Infrastructure to read and process BD Rhapsody data.
 Depends:
