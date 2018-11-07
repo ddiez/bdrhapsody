@@ -63,6 +63,12 @@ read_bd.character <- function(filename, samplename = NULL, org.db = NULL, ...) {
   # set rowData.
   rdata <- DataFrame(parse_bd_id(rownames(y)))
 
+  # add convenience unique id.
+  rdata[["gene"]] <- make.names(rdata$symbol, unique = TRUE)
+
+  rownames(rdata) <- rdata[["gene"]]
+  rownames(y) <- rdata[["gene"]]
+
   if (! is.null(org.db)) {
     if (class(org.db) != "OrgDb")
       warning("org.db object not of class OrgDb (class: ", class(org.db), ")")
