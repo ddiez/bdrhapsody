@@ -4,7 +4,8 @@ Version: 0.0.2.9000
 Authors@R: 'Diego Diez <diego10ruiz@gmail.com> [aut, cre]'
 Description: Infrastructure to read and process BD Rhapsody data.
 Depends:
-  R (>= 3.5.0)
+  R (>= 3.5.0),
+  SingleCellExperiment
 Imports:
   tibble,
   dplyr,
@@ -12,7 +13,6 @@ Imports:
   readr,
   S4Vectors,
   SummarizedExperiment,
-  SingleCellExperiment,
   AnnotationDbi
 License: MIT + file LICENSE
 Encoding: UTF-8
