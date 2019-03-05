@@ -7,6 +7,7 @@
 #' @param filename name of file to read.
 #' @param samplename sample names to attach to cell_index.
 #' @param org.db and OrgDb object or a character string of such object.
+#' @param path an optional path where to look for data files.
 #' @param ... arguments passed down to methods.
 #'
 #' @export
@@ -17,7 +18,9 @@ read_bd <- function(...) {
 #' @rdname read_bd
 #'
 #' @export
-read_bd.data.frame <- function(x, split = FALSE, ...) {
+read_bd.data.frame <- function(x, path = NULL, split = FALSE, ...) {
+  if (!is.null(path)) x[["filename"]] <- file.path(path, x[["filename"]])
+
   if (split) {
     y <- vector("list", nrow(x))
     for (k in seq_len(nrow(x))) {

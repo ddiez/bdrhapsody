@@ -9,7 +9,7 @@
 \usage{
 read_bd(...)
 
-\method{read_bd}{data.frame}(x, split = FALSE, ...)
+\method{read_bd}{data.frame}(x, path = NULL, split = FALSE, ...)
 
 \method{read_bd}{character}(filename, samplename = NULL, org.db = NULL,
   ...)
@@ -20,6 +20,8 @@ read_bd_as_df(filename, samplename = NULL)
 \item{...}{arguments passed down to methods.}
 
 \item{x}{a data.frame with sample information.}
+
+\item{path}{an optional path where to look for data files.}
 
 \item{split}{logical; whether to return a list of objects, each for a file.}
 
